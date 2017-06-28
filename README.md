@@ -4,6 +4,11 @@ A concise tool that glues together [`Flow`](https://flowtype.org/) and [`Webpack
 
 It provides you with flow typecheck status in webpack build reports.
 
+Thanks to author: Shirsh Zibbu ( https://github.com/zhirzh/flow-babel-webpack-plugin )
+
+Updates:
+ - flow-bin is peerDependency now
+
 ---
 
 ### Usage
@@ -21,7 +26,7 @@ You need to follow a few simple steps.
 npm i -D babel-core babel-loader webpack
 
 # Install FBWP
-npm i -D flow-babel-webpack-plugin
+npm i -D babel-flow-webpack-plugin
 ```
 
 #### 2.  Setup babel and flow
@@ -42,7 +47,7 @@ npm i -D flow-babel-webpack-plugin
 ```js
 // webpack.config.js file
 
-var FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
+var FlowBabelWebpackPlugin = require('babel-flow-webpack-plugin');
 
 module.exports = {
   entry: './index',
@@ -84,4 +89,4 @@ I might add something more to it, if I find it really useful. Some options are:
 * IO redirection for further logging or processing
 * External file checks, i.e., files that lie outside of project's root folder
 
-If you have something in mind, or something you want, feel free to [ask](https://github.com/zhirzh/flow-babel-webpack-plugin/issues).
+If you have something in mind, or something you want, feel free to [ask](https://github.com/KROT47/babel-flow-webpack-plugin/issues).
