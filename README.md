@@ -8,6 +8,7 @@ Thanks to author: Shirsh Zibbu ( https://github.com/zhirzh/flow-babel-webpack-pl
 
 Updates:
  - flow-bin is peerDependency now
+ - webpack 4 support
 
 ---
 

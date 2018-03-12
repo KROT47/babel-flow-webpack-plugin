@@ -92,10 +92,19 @@ function pushError(compilation) {
 function FlowFlowPlugin() {}
 
 FlowFlowPlugin.prototype.apply = function(compiler) {
-  compiler.plugin('run', checkFlowStatus);
-  compiler.plugin('watch-run', checkFlowStatus);
+  if (compiler.hooks) {
+    const namespace = 'BabelFlowWebpackPlugin';
 
-  compiler.plugin('compilation', pushError);
+    compiler.hooks.run.tapAsync(namespace, checkFlowStatus);
+    compiler.hooks.watchRun.tapAsync(namespace, checkFlowStatus);
+
+    compiler.hooks.compilation.tap(namespace, pushError);
+  } else {
+    compiler.plugin('run', checkFlowStatus);
+    compiler.plugin('watch-run', checkFlowStatus);
+
+    compiler.plugin('compilation', pushError);
+  }
 };
 
 module.exports = FlowFlowPlugin;
